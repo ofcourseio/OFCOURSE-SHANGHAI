@@ -22,6 +22,10 @@ void ofApp::draw(){
     //x1,y1,x2,y2,x3,y3
     ofTriangle(700, 234, 750, 314, 650, 314);
     
+    //x1,y1,x2,y2
+    ofLine(200, 384, 750, 384);
+    
+    //stroke only
     ofNoFill();
     ofRect(200, 434, 150, 100);
     ofCircle(512, 484, 50);
