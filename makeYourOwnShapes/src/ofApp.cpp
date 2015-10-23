@@ -14,12 +14,13 @@ void ofApp::update(){
 void ofApp::draw(){
     ofSetColor(0);
     
+    //a pentagon
     ofBeginShape();
-    ofVertex(300, 340);
-    ofVertex(500, 440);
-    ofVertex(700, 540);
-    ofVertex(400, 340);
-    ofVertex(300, 440);
+    ofVertex(512, 248);
+    ofVertex(612, 348);
+    ofVertex(562, 448);
+    ofVertex(462, 448);
+    ofVertex(412, 348);
     ofEndShape();
 }
 
