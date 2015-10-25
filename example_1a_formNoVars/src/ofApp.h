@@ -9,9 +9,6 @@ public:
     void update();
     void draw();
 
-    void drawMyShape(int x, int y);
-    void drawMyShape(int x, int y, int width, int height);
-
     void keyPressed(int key);
     void keyReleased(int key);
     void mouseMoved(int x, int y );
@@ -21,5 +18,5 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
-		
+    
 };
