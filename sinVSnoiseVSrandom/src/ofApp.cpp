@@ -12,9 +12,9 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    int numPoints = 200;
-    float length = ofGetWidth() / numPoints;
-    float scale = ofMap(mouseX, 0, ofGetWidth(), 0.001, 0.9);
+    int numPoints = 400;
+    float length = ofGetWidth() / float(numPoints);
+    float scale = ofMap(mouseX, 0, ofGetWidth(), 0.001, 0.5);
     
     
    
@@ -26,7 +26,9 @@ void ofApp::draw(){
     ofBeginShape();
     for (int i = 0; i < numPoints; i++) {
         float x = (i+1) * length;
-        float y = ofGetHeight() / 4 + sin(i*scale) * 50;
+        float yPos = ofGetHeight() / 4;
+        float wave = sin(i*scale) * 50;
+        float y = yPos + wave;
         ofVertex(x, y);
     }
     ofEndShape();
@@ -36,7 +38,9 @@ void ofApp::draw(){
     ofBeginShape();
     for (int i = 0; i < numPoints; i++) {
         float x = (i+1) * length;
-        float y = ofGetHeight() / 4 * 2 + ofSignedNoise(i*scale) * 100;
+        float yPos = ofGetHeight() / 4 * 2;
+        float wave = ofSignedNoise(i*scale) * 100;
+        float y = yPos + wave;
         ofVertex(x, y);
     }
     ofEndShape();
@@ -47,7 +51,9 @@ void ofApp::draw(){
     ofBeginShape();
     for (int i = 0; i < numPoints; i++) {
         float x = (i+1) * length;
-        float y = ofGetHeight() / 4 * 3 + ofRandomuf() * 100;
+        float yPos = ofGetHeight() / 4 * 3;
+        float wave = ofRandomuf() * 100;
+        float y = yPos + wave;
         ofVertex(x, y);
     }
     ofEndShape();
