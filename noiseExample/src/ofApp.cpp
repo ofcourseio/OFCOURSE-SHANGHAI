@@ -19,7 +19,7 @@ void ofApp::draw(){
     
     //ofNoise controls y
     ofSetColor(0);
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < numCircles; i++) {
         float x = (i+1) * circleDiameter;
         float y = ofGetHeight() / 4 - ofNoise(i*scale) * 200;
         float radius = circleDiameter / 2;
@@ -28,7 +28,7 @@ void ofApp::draw(){
     
     //ofNoise controls radius
     ofSetColor(0);
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < numCircles; i++) {
         float x = (i+1) * circleDiameter;
         float y = ofGetHeight() / 4 * 2;
         float radius = circleDiameter * ofNoise(i*scale);
@@ -36,7 +36,7 @@ void ofApp::draw(){
     }
     
     //ofNoise controls color
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < numCircles; i++) {
         float x = (i+1) * circleDiameter;
         float y = ofGetHeight() / 4 * 3;
         float radius = circleDiameter / 2;
