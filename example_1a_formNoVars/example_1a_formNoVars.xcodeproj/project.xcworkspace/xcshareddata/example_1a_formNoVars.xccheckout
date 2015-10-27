@@ -14,11 +14,11 @@
 		<string>https://github.com/ofcourseio/OFCOURSE-SHANGHAI.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AlgoArt Week 1 examples/example_1a_formNoVars/example_1a_formNoVars.xcodeproj</string>
+	<string>example_1a_formNoVars/example_1a_formNoVars.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>82949DB64B4D7F1B5AC48699DBFBE626C89B5748</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ofcourseio/OFCOURSE-SHANGHAI.git</string>

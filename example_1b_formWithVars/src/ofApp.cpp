@@ -9,7 +9,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     //define the variable that effect all polygons
-    polygonW = 200;
+    polygonW = mouseX;
     yOffset = 50;
     xOffset1 = 50;
     xOffset2 = xOffset1 + polygonW;
@@ -52,7 +52,7 @@ void ofApp::update(){
 void ofApp::draw(){
     
     //draw the polygons using built-in openframeworks functions
-    ofTriangle(triX1, triY1, triX2, triY2, triX3, triY3);
+//    ofTriangle(triX1, triY1, triX2, triY2, triX3, triY3);
     ofRect(rectX, rectY, rectW, rectH);
     ofCircle(circX, circY, radius);
     

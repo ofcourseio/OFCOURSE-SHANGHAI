@@ -15,7 +15,7 @@ void ofApp::update(){
 void ofApp::draw(){
   
     //draw the polygons using built-in openframeworks functions
-    ofTriangle(150, 70, 50, 223.205, 250, 223.205);
+    ofTriangle(150, 40, 50, 203.205, 250, 203.205);
     ofRect(50, 273.205, 200, 200);
     ofCircle(150, 623.205, 100);
     
