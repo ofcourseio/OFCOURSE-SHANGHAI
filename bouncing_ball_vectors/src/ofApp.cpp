@@ -2,24 +2,27 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    for (int i = 0; i < 10; i++){
+    ofBackground(0);
+    ofSetBackgroundAuto(false);
+    
+    for (int i = 0; i < 100; i++){
         ofPoint randomPos;
-        randomPos.set(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        randomPos.set(ofGetWidth()/2, ofGetHeight()/2);
         pos.push_back(randomPos);
         
         ofPoint randomVel;
-        randomVel.set(ofRandomuf()*4, ofRandomuf()*4);
+        randomVel.set(cos(i*0.01)*4.0, sin(i*0.2)*4.0);
         vel.push_back(randomVel);
         
-        radius.push_back(ofRandom(10,25));
+        radius.push_back(ofRandom(10,11));
     }
     
-    ofSetColor(255,0,0);
+    ofSetColor(255,0,100);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for (int i = 0; i < 10; i++){
+    for (int i = 0; i < pos.size(); i++){
         pos[i] += vel[i];
         
         if (pos[i].x + radius[i] > ofGetWidth() || pos[i].x - radius[i] < 0) {
@@ -34,7 +37,10 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    for (int i = 0; i < 10; i++){
+    for (int i = 0; i < pos.size(); i++){
+        ofColor col;
+        col.setHsb(ofMap(i, 0, pos.size(), 0, 255), 200, 200);
+        ofSetColor(col);
         ofCircle(pos[i], radius[i]);
     }
 }
