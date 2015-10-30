@@ -19,10 +19,8 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    vector<int> circleResolutions;
-    vector<float> circleHeights;
-    vector<ofColor> circleColors;
-    vector<string> studentNames;
-
-		
+    ofPoint pos;
+    ofPoint vel;
+    float radius;
+    
 };

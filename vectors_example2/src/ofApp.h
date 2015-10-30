@@ -20,5 +20,6 @@ public:
     void gotMessage(ofMessage msg);
     
     vector<ofPoint> trail;
+    vector<ofColor> col;
 		
 };

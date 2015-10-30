@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
+    //int
     circleResolutions.push_back(9);
     circleResolutions.push_back(7);
     circleResolutions.push_back(3);
@@ -14,11 +14,11 @@ void ofApp::setup(){
     circleResolutions.push_back(7);
     circleResolutions.push_back(5);
 
-    
+    //float
     circleHeights.push_back(0);
-    circleHeights.push_back(-4.83387);
-    circleHeights.push_back(16.0174);
-    circleHeights.push_back(-19.3251);
+    circleHeights.push_back(-4.0);
+    circleHeights.push_back(16.01);
+    circleHeights.push_back(-19.32512345982734958);
     circleHeights.push_back(36.938);
     circleHeights.push_back(-43.8679);
     circleHeights.push_back(-51.8467);
@@ -26,9 +26,15 @@ void ofApp::setup(){
     circleHeights.push_back(37.3511);
     circleHeights.push_back(63.0059);
     
-    circleColors.push_back(ofColor::aliceBlue);
-    circleColors.push_back(ofColor::bisque);
+    ofColor myColor;
+    myColor.set(234, 54, 67);
+    
+    //colors
+    //circleColors.size() = 0
+    circleColors.push_back(ofColor::aliceBlue); //circleColors.size() = 1
+    circleColors.push_back(ofColor::bisque); //circleColors.size() = 2
     circleColors.push_back(ofColor::chartreuse);
+    //circleColors.size() = 3
     circleColors.push_back(ofColor::darkGoldenRod);
     circleColors.push_back(ofColor::fireBrick);
     circleColors.push_back(ofColor::gainsboro);
@@ -36,7 +42,9 @@ void ofApp::setup(){
     circleColors.push_back(ofColor::indianRed);
     circleColors.push_back(ofColor::khaki);
     circleColors.push_back(ofColor::lemonChiffon);
+    //circleColors.size() = 10
     
+    //strings
     studentNames.push_back("Wen Zhiyang");
     studentNames.push_back("Liu Zhijian");
     studentNames.push_back("Jin Kaihui");
@@ -48,11 +56,35 @@ void ofApp::setup(){
     studentNames.push_back("Zhang Yi");
     studentNames.push_back("Xia Hang");
 
+    
+    for (int i = 0; i < circleColors.size(); i++){
+        cout << i << " " << circleColors[i] << endl;
+    }
+    
+//    cout << circleColors[0] << endl;
+//    cout << circleColors[1] << endl;
+//    cout << circleColors[2] << endl;
+//    cout << circleColors[3] << endl;
+//    cout << circleColors[4] << endl;
+//    cout << circleColors[5] << endl;
+//    cout << circleColors[6] << endl;
+//    cout << circleColors[7] << endl;
+//    cout << circleColors[8] << endl;
+//    cout << circleColors[9] << endl;
+    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    for (int i = 0; i < circleColors.size(); i++){
+        circleColors[i].r = ofMap(mouseX, 0, ofGetWidth(), 0, 255);
+    }
+ 
+    for (int i = 0; i < circleHeights.size(); i++){
+//        circleHeights[i] = circleHeights[i] * 0.99;
+        circleHeights[i] = circleHeights[i] - 0.2;
+    }
 }
 
 //--------------------------------------------------------------
