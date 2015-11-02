@@ -15,7 +15,6 @@ public:
     void update();
     void draw();
 
-private:
     ofPoint pos;
     ofPoint vel;
     float radius;

@@ -20,6 +20,9 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
+
+    
+    
     vector<bouncingBall> bouncingBalls;
 		
 };
