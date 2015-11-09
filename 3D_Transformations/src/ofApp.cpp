@@ -2,53 +2,59 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    sound.loadSound("This Juan's for the L'80s.wav");
-    sound.setLoop(true);
-    sound.play();
+    ofEnableDepthTest();
+    ofDisableArbTex();
     
-    //how many bands do we want to get volume for?
-    nBandsToGet = 128;
+    light.setDiffuseColor(ofFloatColor(1.0,1.0,1.0));
+    light.setSpecularColor(ofFloatColor(1.0,1.0,1.0));
+    light.setPosition(200, 0, 0);
+    light.enable();
     
-    //assign is a way of setting up a vector with a specific amount of one value
-    fftSmoothed.assign(nBandsToGet, 0.0);
+    rotation = 0;
     
-    ofBackground(0);
+    bricks.loadImage("Worn Brown Brickwork.jpg");
+    
+    cam.setDistance(1000);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    //float * fft creates an array
-    float * fft = ofSoundGetSpectrum(nBandsToGet);
-   
-    // ARRAY: fft[131] = 0.5  go into other memory
-    // VECTOR: fftSmoothed[131] EXC_BAD_ACCESS
-//    convert array to vector
-//    vector<float> fftVector;
-//    fftVector.assign(fft, fft + nBandsToGet);
-
-    
-    for (int i = 0;i < nBandsToGet; i++){
-        
-        // let the smoothed value sink to zero:
-        fftSmoothed[i] *= 0.9f;
-        
-        // take the max, either the smoothed or the incoming:
-        if (fftSmoothed[i] < fft[i]) fftSmoothed[i] = fft[i];
-        
-    }
-
+    rotation = rotation + 1;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    float width = ofGetWidth() / nBandsToGet;
-    for (int i = 0;i < nBandsToGet; i++){
-        float x = i * width;
-        float height = fftSmoothed[i] * ofGetHeight();
-        float y = ofGetHeight() - height;
-        ofRect(x, y, width, height);
-    }
+    ofBackground(0);
     
+    cam.begin();
+    
+    ofEnableLighting();
+    
+    ofPushMatrix();
+
+    ofTranslate(200, 0, 0);
+    ofRotateZ(rotation);
+//    ofScale(3, 1, 1);
+    
+    bricks.bind();
+    ofDrawBox(50);
+    
+    ofPopMatrix();
+    
+//    ofDrawSphere(50);
+//    ofDrawCylinder(50, 50);
+    bricks.unbind();
+    
+    
+    ofCircle(0,0, 100);
+    ofDisableLighting();
+    
+    ofDrawAxis(200);
+    cam.end();
+    
+    ofDrawBox(50);
+    
+
 }
 
 //--------------------------------------------------------------

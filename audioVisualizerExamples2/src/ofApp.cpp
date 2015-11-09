@@ -5,7 +5,7 @@ void ofApp::setup(){
     filename = "no file loaded";
     
     //how many bands do we want to get volume for?
-    nBandsToGet = 2;
+    nBandsToGet = 1024;
     
     //assign is a way of setting up a vector with a specific amount of one value
     fftSmoothed.assign(nBandsToGet, 0.0);
@@ -41,7 +41,7 @@ void ofApp::draw(){
     float width = ofGetWidth() / (float)nBandsToGet;
     for (int i = 0;i < nBandsToGet; i++){
         float x = i * width;
-        float height = fftSmoothed[i] * ofGetHeight()/2;
+        float height = fftSmoothed[i] * ofGetHeight()*4;
         float y = ofGetHeight() - height;
         ofRect(x, y, width, height);
     }
